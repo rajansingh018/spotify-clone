@@ -1,0 +1,474 @@
+body{
+    background-color: #121212;
+}
+.navbar{
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: #000000;
+    width: 100%;
+    height: 60px;
+
+    display: flex;
+    align-items: center;  
+    padding-left: 20px;
+}
+.search-container {
+    display: flex;
+    padding: 5px 10px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    align-items: center;
+    gap: 10px;
+}
+.search-container .search-box {
+    display: flex;
+    align-items: center;
+    background-color: #403d3deb;
+    padding: 10px 10px;
+    border-radius: 20px;
+    width: 33vw;
+}
+.search-container .search-box input {
+    background-color: #403d3deb;
+    color: white;
+    border: none;
+    width: 100%;
+    height: 100%;
+}
+.nav_right {
+    display: flex;
+    gap: 20px;
+}
+.nav_right .invert {
+    margin-top: 8px;
+}
+
+.nav_right .profile-pic {
+    display: flex;
+    gap: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-left: auto;
+    margin-right: 20px;
+}
+
+/* Main containers */
+.main-container {
+    display: flex;
+    height: calc(100vh - 60px);
+    padding: 5px;
+    gap: 10px;
+    background-color: black;
+}
+.left-box {
+    width: 20%;
+    background-color: #121212;
+    margin-left: 5px;
+    border-radius: 10px;
+}
+.left-box-navbar {
+    height: 40px;
+    width: 100%;
+    padding: 10px;
+    color: white;
+    margin-bottom: 20px;
+    padding-left: 20px;
+    position: sticky;
+    top: 0;
+}
+.left-box-navbar .box1{
+    display: flex;
+    align-items: center;
+    gap: 100px;
+    margin-bottom: 10px;
+}
+.left-box-navbar .box2{
+    display: flex;
+    gap: 11px;
+}
+.lib-btn {
+    height: 30px;
+    width: 100%;
+    background-color: #2a2929;
+    border: none;
+    border-radius: 20px;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+}
+.lib-btn:hover {
+    background-color: #615a5a;
+}
+.add-btn {
+    background: linear-gradient(0deg, #2e2c2c 0%, #3b3838 80%, #302d2d 100%);
+    border-radius: 100%;
+    border: none;
+    color: white;
+    font-size: 28px;
+    cursor: pointer;
+    padding: 0 5px;
+
+}
+.add-btn:hover {
+    background: linear-gradient(0deg, #6e6767 0%, #7e7878 80%, #655f5f 100%);
+    border-radius: 100%;
+    border: none;
+    color: white;
+    font-size: 28px;
+    cursor: pointer;
+    padding: 0 5px;
+}
+.middle-box {
+    width: 60%;
+    background-color: #121212;
+    border-radius: 10px;
+}
+.middle-box-navbar {
+    height: 40px;
+    width: 100%;
+    padding: 10px;
+    color: white;
+    margin-bottom: 20px;
+    padding-left: 20px;
+    position: sticky;
+    top: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.right-box {
+    width: 20%;
+    background-color: #121212;
+    margin-right: 5px;
+    border-radius: 10px;
+}
+.song-card {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    margin: 8px 15px;
+    border-radius: 6px;
+    color: white;
+    cursor: pointer;
+}
+
+.song-card:hover {
+    background-color: #2a2a2a;
+}
+
+.song-card img {
+    width: 55px;
+    height: 55px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.song-info {
+    flex: 1;
+    margin-left: 15px;
+}
+
+.song-info h4 {
+    margin: 0;
+    font-size: 15px;
+}
+
+.song-info p {
+    margin: 5px 0 0;
+    color: #b3b3b3;
+    font-size: 13px;
+}
+
+.play-btn {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+.music-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 20px;
+    padding: 15px;
+}
+
+.music-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+.music-card .play-btn {
+    position: absolute;
+    bottom: 35%;     /* Card ke center-ish me laane ke liye */
+    right: 15px;      /* Right side se thoda gap */
+    width: 45px;
+    height: 45px;
+    border-radius: 50%; /* Pure round button banane ke liye */
+    background-color: #1db954; /* Spotify Green color */
+    color: black;
+    border: none;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    /* Smooth transition animation ke liye */
+    opacity: 0;
+    transform: translateY(10px); /* Thoda niche se upar aane ka effect */
+    transition: all 0.3s ease; 
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.music-card:hover {
+    background-color: #1f1f1f;
+}
+/* 3. HOVER EFFECT: Jab poore card par hover ho, tab play button dikhe */
+.music-card:hover .play-btn {
+    opacity: 1;
+    transform: translateY(0); /* Apni sahi jagah par aa jayega */
+}
+
+/* 4. Button par alag se hover karne par thoda zoom effect (Optional) */
+.music-card .play-btn:hover {
+    transform: scale(1.05);
+    background-color: #1ed760; /* Light green on button hover */
+}
+
+.music-card img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.music-card h4 {
+    font-size: 15px;
+    margin: 10px 0 5px;
+}
+
+.music-card p {
+    color: #b3b3b3;
+    font-size: 13px;
+    margin: 0;
+}
+footer .player-controls button{
+    color: rgba(235, 229, 229, 0.763);
+}
+footer .player-controls button:hover{
+    color: white;
+}
+/* Lyrics Main Box */
+.lyrics-container {
+    /* background-color: #5E004A; Premium Pinkish Gradient */
+    border-radius: 15px;
+    padding: 20px;
+    margin: 5px;
+    margin-top: 20px;
+    box-shadow: 0 8px 24px rgba(255, 117, 140, 0.3);
+    position: relative;
+    max-height: 60%;
+    overflow: scroll;
+}
+
+/* Lyrics Text Formatting */
+#song-lyrics {
+    font-size: 20px;
+    line-height: 1.6;
+    margin: 0;
+    --lyrics-color-active: rgba(255, 255, 255, 1);
+    --lyrics-color-inactive: rgba(254, 184, 231, 1);
+    --lyrics-color-passed: rgba(255, 255, 255, 1);
+}
+
+/* Tablet Responsive */
+@media screen and (max-width: 1024px) {
+    .left-box-navbar .box1 {
+        gap: 20px;
+    }
+
+    .left-box {
+        width: 25%;
+    }
+
+    .middle-box {
+        width: 50%;
+        min-width: 0;
+    }
+
+    .right-box {
+        width: 25%;
+    }
+
+    .music-grid {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    }
+
+    .lyrics-container {
+        padding: 12px;
+    }
+
+    #song-lyrics {
+        font-size: 17px;
+    }
+}
+
+/* Mobile Responsive */
+@media screen and (max-width: 600px) {
+
+    /* Navbar */
+    .navbar {
+        padding: 0 10px;
+        gap: 8px;
+    }
+
+    .search-container {
+        position: static;
+        transform: none;
+        flex: 1;
+        min-width: 0;
+        padding: 5px 0;
+    }
+
+    .search-container .search-box {
+        width: 100%;
+        min-width: 0;
+        padding: 9px;
+    }
+
+    .nav_right {
+        gap: 8px;
+    }
+
+    .nav_right .profile-pic {
+        width: 32px;
+        height: 32px;
+        margin: 0;
+    }
+
+    /* Main Layout */
+    .main-container {
+        height: calc(100vh - 60px);
+        height: calc(100dvh - 60px);
+        padding: 5px;
+        gap: 0;
+    }
+
+    .left-box,
+    .right-box {
+        display: none;
+    }
+
+    .middle-box {
+        width: 100%;
+        flex: 1;
+        min-width: 0;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    .middle-box-navbar {
+        padding: 10px;
+        gap: 8px;
+    }
+
+    /* Music Cards */
+    .music-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+        padding: 8px;
+    }
+
+    .music-card {
+        padding: 8px;
+        min-width: 0;
+    }
+
+    .music-card h4 {
+        font-size: 14px;
+        overflow-wrap: anywhere;
+    }
+
+    .music-card p {
+        font-size: 12px;
+    }
+
+    /* Show Play Button on Touchscreens */
+    .music-card .play-btn {
+        opacity: 1;
+        transform: none;
+        width: 38px;
+        height: 38px;
+        right: 10px;
+        bottom: 35%;
+    }
+
+    /* Song List */
+    .song-card {
+        margin: 8px;
+        padding: 8px;
+    }
+
+    .song-card img {
+        width: 45px;
+        height: 45px;
+    }
+
+    .song-info {
+        margin-left: 10px;
+        min-width: 0;
+    }
+
+    .song-info h4 {
+        font-size: 14px;
+    }
+
+    .song-info p {
+        font-size: 12px;
+    }
+
+    /* Lyrics */
+    .lyrics-container {
+        padding: 12px;
+        margin: 8px;
+        max-height: 50%;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    #song-lyrics {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+}
+
+/* Very Small Screens */
+@media screen and (max-width: 380px) {
+    .nav_right {
+        gap: 5px;
+    }
+
+    .nav_right .invert {
+        display: none;
+    }
+
+    .music-grid {
+        gap: 6px;
+        padding: 5px;
+    }
+
+    .music-card {
+        padding: 5px;
+    }
+}

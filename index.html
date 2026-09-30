@@ -1,0 +1,1017 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Spotify-Clone: web player</title>
+    <link rel="icon" href="logo.svg">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="utilities.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <img src="logo.svg" alt="Spotify Logo" class="invert">
+        <div class="search-container">
+            <a href="index.html">
+                <img src="home.svg" id="home-btn" width="24" height="24" alt="home" class="invert">
+            </a>
+            <div class="search-box">
+                <img src="search.svg" alt="search" class="invert" width="24" height="24">
+                <input type="text" id="song-search" style="background-color: #403d3deb;"
+                    placeholder="What do you want to play? ">
+                <img src="browse_all.svg" alt="browse all" class="invert" width="24" height="24">
+            </div>
+        </div>
+        <div class="nav_right">
+            <img src="friends.svg" alt="friends" class="invert" width="24" height="24">
+            <div class="profile-container">
+
+                <div class="profile-pic" id="profilePic">
+                    <img src="profile.jpg" alt="Profile" class="profile-pic">
+                </div>
+
+                <div class="profile-menu" id="profileMenu">
+
+                    <div class="profile-menu-item">
+                        <span>👤</span>
+                        <p>Account</p>
+                    </div>
+
+                    <div class="profile-menu-item">
+                        <span>⚙️</span>
+                        <p>Settings</p>
+                    </div>
+
+                    <div class="profile-menu-item">
+                        <span>📥</span>
+                        <p>Downloads</p>
+                    </div>
+
+                    <div class="profile-menu-item">
+                        <span>🔔</span>
+                        <p>Notifications</p>
+                    </div>
+
+                    <hr>
+
+                    <div class="profile-menu-item logout" id="logoutBtn">
+                        <span>🚪</span>
+                        <p>Log out</p>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </nav>
+
+    <div class="main-container">
+
+        <div class="left-box">
+            <nav class="left-box-navbar">
+                <div class="box1">
+                    <h5>Your Library</h5>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="box2">
+                    <button class="lib-btn">Playlists</button>
+                    <button class="lib-btn">Artists</button>
+                    <button class="lib-btn">Albums</button>
+                </div>
+            </nav>
+            <div class="left-box-content">
+            </div>
+        </div>
+
+        <div class="middle-box">
+            <nav class="middle-box-navbar">
+                <button class="lib-btn" id="lib-btn-all">All</button>
+                <button class="lib-btn" id="lib-btn-music">Music</button>
+                <button class="lib-btn">Podcasts</button>
+            </nav>
+            <div class="middle-box-content">
+                <div class="song-card" data-song="music/song1.mp3" data-video="videos/video1.mp4" data-lyrics="कायर जो थे, वो शायर बने
+अब क्या-क्या करें ये इश्क़ में
+ना कहते थे कुछ जो, लगे खोज में
+क्या लफ़्ज़ चुने, नए आशिक़ ये
+इश्क़ में तेरे हैं फ़ैज़ बने
+अर्ज़ किया है
+हमने भी लिखा कुछ तेरे बारे में है
+ऐसे तू लगे कि ग़ुलाब है
+और ऐसे तू लगे कि ग़ुलाब है
+बागों में दिल के खिलके इन फ़िज़ाओं में छाए हो, हाय
+और वैसे हम तो तेरे ही ग़ुलाम हैं
+और वैसे हम तो तेरे ही ग़ुलाम हैं
+बादशाह दिल के तेरी बाज़ी में जो तू चाहे तो
+डूबे दिलों की क्या नाव बनूँ?
+मैं ख़ुद तैर पाऊँ ना आँखों में
+शायर की फ़ितरत में ही डूबना
+मैं क्या ही लड़ूँ तूफ़ानों से
+इश्क़ में तेरे हैं फ़ैज़ बने
+अर्ज़ किया है
+हमने भी लिखा कुछ तेरे बारे में है
+हाथों को संभालें मेरे हाथों में
+कैसे हाथों को संभालें मेरे हाथों में
+जब तक नींद ना आए, इन लकीरों में बातें हो, हाय
+हाँ, सब ने तो सब कह दिया है
+क्या ही कहूँ जो अभी भी अनकहा है
+मैं, हाय, ना मिर्ज़ा, ना मीर, ना माहिर, ना ज़ाहिर
+करूँ कुछ नया मैं
+हाय, पर जो भी लिखा है, जिया है
+हाँ, जिया है
+ऐसे, ऐसे, ऐसे, कैसे, वैसे, जैसे
+जैसे मैं पढ़ूँ मेरे दिल में जो
+मेरी आँखें भी पढ़ें तेरी आँखों को
+क्या यह महफ़िल में बैठें या उठें
+दौड़ जाने को? हाय
+तेरी आँखों में तारीफ़ों की तलाश है
+मेरी महफ़िल तेरे जाने से वीरान है
+मैं बस शायर बना हूँ
+सिर्फ़ तू सुनने आए तो
+शायद शायर बना हूँ सिर्फ़ तू सुनने आए तो">
+                    <img src="images/song1.jpg" alt="Song">
+
+                    <div class="song-info">
+                        <h4>Arz Kiya Hai | Coke Studio Bharat</h4>
+                        <p>Song by Anuv Jain</p>
+                    </div>
+
+                    <button class="play-btn">▶</button>
+                </div>
+                <div class="song-card" data-song="music/song2.mp3" data-video="videos/video2.mp4" data-lyrics="कभी जो मैं इश्क़ लिखूँ
+तो तेरी तस्वीर बने
+हँस के मैं रांझा बनूँ
+जो तू मेरी हीर बने
+चाहूँ तेरे हाथों से
+मेरी तक़दीर बने
+हँस के मैं रांझा बनूँ
+जो तू मेरी हीर बने
+पहली सी बात नहीं
+क्या मैं तुझे याद नहीं
+क्योंकि तू रो लेती
+तेरी हर बात सही
+वो मंज़र अब भी आँखों से जाता नहीं
+तेरा कहना कि तू मुझको चाहता नहीं
+दिल भी मैं पेश करूँ
+तू अगर तीर बने
+हँस के मैं रांझा बनूँ
+जो तू मेरी हीर बने
+चाहूँ तेरे हाथों से
+मेरी तक़दीर बने
+हँस के मैं रांझा बनूँ
+जो तू मेरी हीर बने
+हो
+रब जाने या तू जाने
+हमरा दिल तुझको माने
+औरों की बातों में न आ हाय
+हमको न सुनता यहाँ पे
+दुनिया बस देती ताने
+ग़ैरों पे करना सफर ना
+या सच में बता दे
+तू चाहती है क्या
+होना जुदा
+क्या बाकी है तेरे जाने जा
+दिल में जगह
+ऐसी कोई बात नहीं
+जिसमें न याद तेरी
+कैसे न तू दिल में बसे
+रह जाए याद तेरी
+बिन तेरे जाने क्यों मुस्कुराता नहीं
+हँसना तो अब चाह कर भी आता नहीं
+खुद को मैं बाँध लूँ अगर
+जो तू ज़ंजीर बने
+हँस के मैं रांझा बनूँ
+जो तू मेरी हीर बने
+चाहूँ तेरे हाथों से
+मेरी तक़दीर बने
+हँस के मैं रांझा बनूँ,
+जो तू मेरी हीर बने हो हो
+हो हँस के मैं रांझा बनूँ
+जो तू मेरी हीर बने">
+                    <img src="images/song2.jpg" alt="Song">
+
+                    <div class="song-info">
+                        <h4>Heer</h4>
+                        <p>Song by Ali & Shjr, Ali Raza, and Haider Ali ‧ 2025</p>
+                    </div>
+
+                    <button class="play-btn">▶</button>
+                </div>
+                <div class="song-card" data-song="music/song3.mp3" data-video="videos/video3.mp4" data-lyrics="Kisi shaam ki tarah
+Tera rang hai khila
+Main raat ik tanha
+Tu chand sa mila
+
+Haan tujhe dekhta raha
+Kisi khaab ki tarah
+Jo ab saamne hai tu
+Ho kaise yaqeen bhala
+
+Toota jo kabhi taara, sajna ve!
+Tujhe Rabb se maanga
+Rabb se jo maanga mileya ve…
+Tu mileya to jaane na dunga main
+
+Haan maine suni hai
+Pariyon ki kahani
+Waisa hi noor tera
+Chehra hai tera ruhani
+
+Aa tujhko main apni
+(aaja meri) Baahon mein chupa loon
+Haan apni iss zameen ko
+Kar doon main aasmaan bhi…
+
+Zindagi rok doon main ab tere saamne
+Pal do pal jo ruke tu mere sath mein
+
+Toota jo kabhi tara sajna ve
+Tujhe Rabb se maanga
+Rabb se jo maanga mileya ve…
+Tu mileya to jaane na dunga main
+
+Itni bhi haseen main nahi, o yaara ve!
+Mujhse bhi haseen toh tera ye pyar hai
+Haan itni bhi haseen main nahi
+O yaara ve!
+Mujhse bhi haseen tera pyar…
+
+Ke tera mera pyar ye
+Jaise khwab aur duaa
+Haan sach kar raha inhe
+Dekho mera Khuda…
+
+Toota jo kabhi taara sajna ve
+Tujhe Rabb se maanga
+Rabb se jo maanga, mileya ve…
+Tu mileya to jaane na dungi main
+">
+                    <img src="images/song3.jpg" alt="Song">
+
+                    <div class="song-info">
+                        <h4>Toota Jo Kabhi Tara</h4>
+                        <p>Song by Sumedha Karmahe, Atif Aslam</p>
+                    </div>
+
+                    <button class="play-btn">▶</button>
+                </div>
+
+                <div class="musicCardsbox">
+                    <h2 style="margin-left: 20px;">Popular songs</h2>
+                    <div class="music-grid">
+                        <div class="music-card" data-song="music/song1.mp3" data-video="videos/video1.mp4" data-lyrics="कायर जो थे, वो शायर बने
+अब क्या-क्या करें ये इश्क़ में
+ना कहते थे कुछ जो, लगे खोज में
+क्या लफ़्ज़ चुने, नए आशिक़ ये
+इश्क़ में तेरे हैं फ़ैज़ बने
+अर्ज़ किया है
+हमने भी लिखा कुछ तेरे बारे में है
+ऐसे तू लगे कि ग़ुलाब है
+और ऐसे तू लगे कि ग़ुलाब है
+बागों में दिल के खिलके इन फ़िज़ाओं में छाए हो, हाय
+और वैसे हम तो तेरे ही ग़ुलाम हैं
+और वैसे हम तो तेरे ही ग़ुलाम हैं
+बादशाह दिल के तेरी बाज़ी में जो तू चाहे तो
+डूबे दिलों की क्या नाव बनूँ?
+मैं ख़ुद तैर पाऊँ ना आँखों में
+शायर की फ़ितरत में ही डूबना
+मैं क्या ही लड़ूँ तूफ़ानों से
+इश्क़ में तेरे हैं फ़ैज़ बने
+अर्ज़ किया है
+हमने भी लिखा कुछ तेरे बारे में है
+हाथों को संभालें मेरे हाथों में
+कैसे हाथों को संभालें मेरे हाथों में
+जब तक नींद ना आए, इन लकीरों में बातें हो, हाय
+हाँ, सब ने तो सब कह दिया है
+क्या ही कहूँ जो अभी भी अनकहा है
+मैं, हाय, ना मिर्ज़ा, ना मीर, ना माहिर, ना ज़ाहिर
+करूँ कुछ नया मैं
+हाय, पर जो भी लिखा है, जिया है
+हाँ, जिया है
+ऐसे, ऐसे, ऐसे, कैसे, वैसे, जैसे
+जैसे मैं पढ़ूँ मेरे दिल में जो
+मेरी आँखें भी पढ़ें तेरी आँखों को
+क्या यह महफ़िल में बैठें या उठें
+दौड़ जाने को? हाय
+तेरी आँखों में तारीफ़ों की तलाश है
+मेरी महफ़िल तेरे जाने से वीरान है
+मैं बस शायर बना हूँ
+सिर्फ़ तू सुनने आए तो
+शायद शायर बना हूँ सिर्फ़ तू सुनने आए तो">
+                            <img src="images/song1.jpg" alt="Song">
+                            <h4>Arz Kiya Hai | Coke Studio Bharat</h4>
+                            <p>Anuv Jain</p>
+                            <button class="play-btn">▶</button>
+                        </div>
+
+                        <div class="music-card" data-song="music/song2.mp3" data-video="videos/video2.mp4" data-lyrics="कभी जो मैं इश्क़ लिखूँ
+तो तेरी तस्वीर बने
+हँस के मैं रांझा बनूँ
+जो तू मेरी हीर बने
+चाहूँ तेरे हाथों से
+मेरी तक़दीर बने
+हँस के मैं रांझा बनूँ
+जो तू मेरी हीर बने
+पहली सी बात नहीं
+क्या मैं तुझे याद नहीं
+क्योंकि तू रो लेती
+तेरी हर बात सही
+वो मंज़र अब भी आँखों से जाता नहीं
+तेरा कहना कि तू मुझको चाहता नहीं
+दिल भी मैं पेश करूँ
+तू अगर तीर बने
+हँस के मैं रांझा बनूँ
+जो तू मेरी हीर बने
+चाहूँ तेरे हाथों से
+मेरी तक़दीर बने
+हँस के मैं रांझा बनूँ
+जो तू मेरी हीर बने
+हो
+रब जाने या तू जाने
+हमरा दिल तुझको माने
+औरों की बातों में न आ हाय
+हमको न सुनता यहाँ पे
+दुनिया बस देती ताने
+ग़ैरों पे करना सफर ना
+या सच में बता दे
+तू चाहती है क्या
+होना जुदा
+क्या बाकी है तेरे जाने जा
+दिल में जगह
+ऐसी कोई बात नहीं
+जिसमें न याद तेरी
+कैसे न तू दिल में बसे
+रह जाए याद तेरी
+बिन तेरे जाने क्यों मुस्कुराता नहीं
+हँसना तो अब चाह कर भी आता नहीं
+खुद को मैं बाँध लूँ अगर
+जो तू ज़ंजीर बने
+हँस के मैं रांझा बनूँ
+जो तू मेरी हीर बने
+चाहूँ तेरे हाथों से
+मेरी तक़दीर बने
+हँस के मैं रांझा बनूँ,
+जो तू मेरी हीर बने हो हो
+हो हँस के मैं रांझा बनूँ
+जो तू मेरी हीर बने">
+                            <img src="images/song2.jpg" alt="Song">
+                            <h4>Heer</h4>
+                            <p>Ali & Shjr, Ali Raza, and Haider Ali ‧ 2025</p>
+                            <button class="play-btn">▶</button>
+                        </div>
+
+                        <div class="music-card" data-song="music/song3.mp3" data-video="videos/video3.mp4" data-lyrics="Kisi shaam ki tarah
+Tera rang hai khila
+Main raat ik tanha
+Tu chand sa mila
+
+Haan tujhe dekhta raha
+Kisi khaab ki tarah
+Jo ab saamne hai tu
+Ho kaise yaqeen bhala
+
+Toota jo kabhi taara, sajna ve!
+Tujhe Rabb se maanga
+Rabb se jo maanga mileya ve…
+Tu mileya to jaane na dunga main
+
+Haan maine suni hai
+Pariyon ki kahani
+Waisa hi noor tera
+Chehra hai tera ruhani
+
+Aa tujhko main apni
+(aaja meri) Baahon mein chupa loon
+Haan apni iss zameen ko
+Kar doon main aasmaan bhi…
+
+Zindagi rok doon main ab tere saamne
+Pal do pal jo ruke tu mere sath mein
+
+Toota jo kabhi tara sajna ve
+Tujhe Rabb se maanga
+Rabb se jo maanga mileya ve…
+Tu mileya to jaane na dunga main
+
+Itni bhi haseen main nahi, o yaara ve!
+Mujhse bhi haseen toh tera ye pyar hai
+Haan itni bhi haseen main nahi
+O yaara ve!
+Mujhse bhi haseen tera pyar…
+
+Ke tera mera pyar ye
+Jaise khwab aur duaa
+Haan sach kar raha inhe
+Dekho mera Khuda…
+
+Toota jo kabhi taara sajna ve
+Tujhe Rabb se maanga
+Rabb se jo maanga, mileya ve…
+Tu mileya to jaane na dungi main
+">
+                            <img src="images/song3.jpg" alt="Song">
+                            <h4>Toota Jo Kabhi Tara</h4>
+                            <p>Sumedha Karmahe, Atif Aslam</p>
+                            <button class="play-btn">▶</button>
+                        </div>
+                        <div class="music-card" data-song="music/song4.mp3" data-video="videos/video4.mp4" data-lyrics="
+Tara rum bam bam bam bam
+Tara rum bam bam bam bam
+Tara rum bam bam bam bam
+Imma shake yo world imma break it down
+Teekha eyeliner lemme fix that crown
+Juuls on my body gold and brown
+Now bow down
+
+Mera nasha chadhe sir pe hai zehreela
+Imma spin your head jaise tequila
+Vision so bright ye na dekh pa re
+Gold waist chain maare lashkaare
+
+Ain’t no gold digger chaubis carat soul meri
+Dil hue chori sab ke international robbery
+Duniya ramp walk slow motion confetti
+Sunu na kisi ki coz m not yo property
+
+Casa casa casa casa casa tupka tequila
+Casa casa casa casa casa tupka tequila
+Casa casa casa casa casa tupka tequila
+Casa casa casa casa casa tupka tequila
+Casa casa casa casa casa tupka tequila
+
+Party karni party pehle yo yo bulao
+Police toh agayi ab aunty bulao
+Party all nighter kambal uthao
+Mere hatero ko pehle thode chole khilao
+
+Mujhsa sexy kaun mujhsa sexy kaun
+Daadi salt and pepper rakhi mujhsa flexy laun
+Bada hot hai weather jab baje reggaeto
+Lemme take you baby girl chalo mexico
+
+Teri vodka kahan gayi kya hua biki ni
+Chal kaam band kar pehen aaja bikini
+Rakhlu kya kaam pe leliyo sallary
+Aya jo mai wapis inki shakle bhi dikhi nahi
+
+Baitha mai toh peak pe
+Ab tamasha dekhunga
+Mota paisa hai kamaya
+Mota paisa faekunga
+
+Bina piye udu mai
+Mujhe neeche khicho na
+Daaru peeni chori maine
+Ab bus baechunga
+
+Casa casa casa casa casa tupka tequila
+Casa casa casa casa casa tupka tequila
+Casa casa casa casa casa tupka tequila
+Casa casa casa casa casa tupka tequila
+Casa casa casa casa casa tupka tequila
+
+Tara rum bam bam bam bam
+Drink only tequila get drunk
+Tara rum bam bam bam bam
+Drink only tequila get drunk
+
+Tara rum bam bam bam bam
+Drink only tequila get drunk
+Tara rum bam bam bam bam
+Drink only tequila get drunk
+
+Tara rum bam bam bam bam
+Tara rum bam bam bam bam
+Tara rum bam bam bam bam
+Tara rum bam bam bam bam">
+                            <img src="images/song4.jpg" alt="Song">
+                            <h4>Casa Tupka Anthemo</h4>
+                            <p>Yo Yo Honey Singh, Priyanshi Srivastava</p>
+                            <button class="play-btn">▶</button>
+                        </div>
+                    </div>
+                    <div class="music-grid">
+                        <div class="music-card" data-song="music/song1.mp3" data-video="videos/video1.mp4" data-lyrics="कायर जो थे, वो शायर बने
+अब क्या-क्या करें ये इश्क़ में
+ना कहते थे कुछ जो, लगे खोज में
+क्या लफ़्ज़ चुने, नए आशिक़ ये
+इश्क़ में तेरे हैं फ़ैज़ बने
+अर्ज़ किया है
+हमने भी लिखा कुछ तेरे बारे में है
+ऐसे तू लगे कि ग़ुलाब है
+और ऐसे तू लगे कि ग़ुलाब है
+बागों में दिल के खिलके इन फ़िज़ाओं में छाए हो, हाय
+और वैसे हम तो तेरे ही ग़ुलाम हैं
+और वैसे हम तो तेरे ही ग़ुलाम हैं
+बादशाह दिल के तेरी बाज़ी में जो तू चाहे तो
+डूबे दिलों की क्या नाव बनूँ?
+मैं ख़ुद तैर पाऊँ ना आँखों में
+शायर की फ़ितरत में ही डूबना
+मैं क्या ही लड़ूँ तूफ़ानों से
+इश्क़ में तेरे हैं फ़ैज़ बने
+अर्ज़ किया है
+हमने भी लिखा कुछ तेरे बारे में है
+हाथों को संभालें मेरे हाथों में
+कैसे हाथों को संभालें मेरे हाथों में
+जब तक नींद ना आए, इन लकीरों में बातें हो, हाय
+हाँ, सब ने तो सब कह दिया है
+क्या ही कहूँ जो अभी भी अनकहा है
+मैं, हाय, ना मिर्ज़ा, ना मीर, ना माहिर, ना ज़ाहिर
+करूँ कुछ नया मैं
+हाय, पर जो भी लिखा है, जिया है
+हाँ, जिया है
+ऐसे, ऐसे, ऐसे, कैसे, वैसे, जैसे
+जैसे मैं पढ़ूँ मेरे दिल में जो
+मेरी आँखें भी पढ़ें तेरी आँखों को
+क्या यह महफ़िल में बैठें या उठें
+दौड़ जाने को? हाय
+तेरी आँखों में तारीफ़ों की तलाश है
+मेरी महफ़िल तेरे जाने से वीरान है
+मैं बस शायर बना हूँ
+सिर्फ़ तू सुनने आए तो
+शायद शायर बना हूँ सिर्फ़ तू सुनने आए तो">
+                            <img src="images/song1.jpg" alt="Song">
+                            <h4>Arz Kiya Hai | Coke Studio Bharat</h4>
+                            <p>Anuv Jain</p>
+                            <button class="play-btn">▶</button>
+                        </div>
+
+                        <div class="music-card" data-song="music/song2.mp3" data-video="videos/video2.mp4" data-lyrics="कभी जो मैं इश्क़ लिखूँ
+तो तेरी तस्वीर बने
+हँस के मैं रांझा बनूँ
+जो तू मेरी हीर बने
+चाहूँ तेरे हाथों से
+मेरी तक़दीर बने
+हँस के मैं रांझा बनूँ
+जो तू मेरी हीर बने
+पहली सी बात नहीं
+क्या मैं तुझे याद नहीं
+क्योंकि तू रो लेती
+तेरी हर बात सही
+वो मंज़र अब भी आँखों से जाता नहीं
+तेरा कहना कि तू मुझको चाहता नहीं
+दिल भी मैं पेश करूँ
+तू अगर तीर बने
+हँस के मैं रांझा बनूँ
+जो तू मेरी हीर बने
+चाहूँ तेरे हाथों से
+मेरी तक़दीर बने
+हँस के मैं रांझा बनूँ
+जो तू मेरी हीर बने
+हो
+रब जाने या तू जाने
+हमरा दिल तुझको माने
+औरों की बातों में न आ हाय
+हमको न सुनता यहाँ पे
+दुनिया बस देती ताने
+ग़ैरों पे करना सफर ना
+या सच में बता दे
+तू चाहती है क्या
+होना जुदा
+क्या बाकी है तेरे जाने जा
+दिल में जगह
+ऐसी कोई बात नहीं
+जिसमें न याद तेरी
+कैसे न तू दिल में बसे
+रह जाए याद तेरी
+बिन तेरे जाने क्यों मुस्कुराता नहीं
+हँसना तो अब चाह कर भी आता नहीं
+खुद को मैं बाँध लूँ अगर
+जो तू ज़ंजीर बने
+हँस के मैं रांझा बनूँ
+जो तू मेरी हीर बने
+चाहूँ तेरे हाथों से
+मेरी तक़दीर बने
+हँस के मैं रांझा बनूँ,
+जो तू मेरी हीर बने हो हो
+हो हँस के मैं रांझा बनूँ
+जो तू मेरी हीर बने">
+                            <img src="images/song2.jpg" alt="Song">
+                            <h4>Heer</h4>
+                            <p>Ali & Shjr, Ali Raza, and Haider Ali ‧ 2025</p>
+                            <button class="play-btn">▶</button>
+                        </div>
+
+                        <div class="music-card" data-song="music/song3.mp3" data-video="videos/video3.mp4" data-lyrics="Kisi shaam ki tarah
+Tera rang hai khila
+Main raat ik tanha
+Tu chand sa mila
+
+Haan tujhe dekhta raha
+Kisi khaab ki tarah
+Jo ab saamne hai tu
+Ho kaise yaqeen bhala
+
+Toota jo kabhi taara, sajna ve!
+Tujhe Rabb se maanga
+Rabb se jo maanga mileya ve…
+Tu mileya to jaane na dunga main
+
+Haan maine suni hai
+Pariyon ki kahani
+Waisa hi noor tera
+Chehra hai tera ruhani
+
+Aa tujhko main apni
+(aaja meri) Baahon mein chupa loon
+Haan apni iss zameen ko
+Kar doon main aasmaan bhi…
+
+Zindagi rok doon main ab tere saamne
+Pal do pal jo ruke tu mere sath mein
+
+Toota jo kabhi tara sajna ve
+Tujhe Rabb se maanga
+Rabb se jo maanga mileya ve…
+Tu mileya to jaane na dunga main
+
+Itni bhi haseen main nahi, o yaara ve!
+Mujhse bhi haseen toh tera ye pyar hai
+Haan itni bhi haseen main nahi
+O yaara ve!
+Mujhse bhi haseen tera pyar…
+
+Ke tera mera pyar ye
+Jaise khwab aur duaa
+Haan sach kar raha inhe
+Dekho mera Khuda…
+
+Toota jo kabhi taara sajna ve
+Tujhe Rabb se maanga
+Rabb se jo maanga, mileya ve…
+Tu mileya to jaane na dungi main
+">
+                            <img src="images/song3.jpg" alt="Song">
+                            <h4>Toota Jo Kabhi Tara</h4>
+                            <p>Sumedha Karmahe, Atif Aslam</p>
+                            <button class="play-btn">▶</button>
+                        </div>
+                        <div class="music-card" data-song="music/song4.mp3" data-video="videos/video4.mp4" data-lyrics="
+Tara rum bam bam bam bam
+Tara rum bam bam bam bam
+Tara rum bam bam bam bam
+Imma shake yo world imma break it down
+Teekha eyeliner lemme fix that crown
+Juuls on my body gold and brown
+Now bow down
+
+Mera nasha chadhe sir pe hai zehreela
+Imma spin your head jaise tequila
+Vision so bright ye na dekh pa re
+Gold waist chain maare lashkaare
+
+Ain’t no gold digger chaubis carat soul meri
+Dil hue chori sab ke international robbery
+Duniya ramp walk slow motion confetti
+Sunu na kisi ki coz m not yo property
+
+Casa casa casa casa casa tupka tequila
+Casa casa casa casa casa tupka tequila
+Casa casa casa casa casa tupka tequila
+Casa casa casa casa casa tupka tequila
+Casa casa casa casa casa tupka tequila
+
+Party karni party pehle yo yo bulao
+Police toh agayi ab aunty bulao
+Party all nighter kambal uthao
+Mere hatero ko pehle thode chole khilao
+
+Mujhsa sexy kaun mujhsa sexy kaun
+Daadi salt and pepper rakhi mujhsa flexy laun
+Bada hot hai weather jab baje reggaeto
+Lemme take you baby girl chalo mexico
+
+Teri vodka kahan gayi kya hua biki ni
+Chal kaam band kar pehen aaja bikini
+Rakhlu kya kaam pe leliyo sallary
+Aya jo mai wapis inki shakle bhi dikhi nahi
+
+Baitha mai toh peak pe
+Ab tamasha dekhunga
+Mota paisa hai kamaya
+Mota paisa faekunga
+
+Bina piye udu mai
+Mujhe neeche khicho na
+Daaru peeni chori maine
+Ab bus baechunga
+
+Casa casa casa casa casa tupka tequila
+Casa casa casa casa casa tupka tequila
+Casa casa casa casa casa tupka tequila
+Casa casa casa casa casa tupka tequila
+Casa casa casa casa casa tupka tequila
+
+Tara rum bam bam bam bam
+Drink only tequila get drunk
+Tara rum bam bam bam bam
+Drink only tequila get drunk
+
+Tara rum bam bam bam bam
+Drink only tequila get drunk
+Tara rum bam bam bam bam
+Drink only tequila get drunk
+
+Tara rum bam bam bam bam
+Tara rum bam bam bam bam
+Tara rum bam bam bam bam
+Tara rum bam bam bam bam">
+                            <img src="images/song4.jpg" alt="Song">
+                            <h4>Casa Tupka Anthemo</h4>
+                            <p>Yo Yo Honey Singh, Priyanshi Srivastava</p>
+                            <button class="play-btn">▶</button>
+                        </div>
+                    </div>
+                    <div class="music-grid">
+                        <div class="music-card" data-song="music/song1.mp3" data-video="videos/video1.mp4" data-lyrics="कायर जो थे, वो शायर बने
+अब क्या-क्या करें ये इश्क़ में
+ना कहते थे कुछ जो, लगे खोज में
+क्या लफ़्ज़ चुने, नए आशिक़ ये
+इश्क़ में तेरे हैं फ़ैज़ बने
+अर्ज़ किया है
+हमने भी लिखा कुछ तेरे बारे में है
+ऐसे तू लगे कि ग़ुलाब है
+और ऐसे तू लगे कि ग़ुलाब है
+बागों में दिल के खिलके इन फ़िज़ाओं में छाए हो, हाय
+और वैसे हम तो तेरे ही ग़ुलाम हैं
+और वैसे हम तो तेरे ही ग़ुलाम हैं
+बादशाह दिल के तेरी बाज़ी में जो तू चाहे तो
+डूबे दिलों की क्या नाव बनूँ?
+मैं ख़ुद तैर पाऊँ ना आँखों में
+शायर की फ़ितरत में ही डूबना
+मैं क्या ही लड़ूँ तूफ़ानों से
+इश्क़ में तेरे हैं फ़ैज़ बने
+अर्ज़ किया है
+हमने भी लिखा कुछ तेरे बारे में है
+हाथों को संभालें मेरे हाथों में
+कैसे हाथों को संभालें मेरे हाथों में
+जब तक नींद ना आए, इन लकीरों में बातें हो, हाय
+हाँ, सब ने तो सब कह दिया है
+क्या ही कहूँ जो अभी भी अनकहा है
+मैं, हाय, ना मिर्ज़ा, ना मीर, ना माहिर, ना ज़ाहिर
+करूँ कुछ नया मैं
+हाय, पर जो भी लिखा है, जिया है
+हाँ, जिया है
+ऐसे, ऐसे, ऐसे, कैसे, वैसे, जैसे
+जैसे मैं पढ़ूँ मेरे दिल में जो
+मेरी आँखें भी पढ़ें तेरी आँखों को
+क्या यह महफ़िल में बैठें या उठें
+दौड़ जाने को? हाय
+तेरी आँखों में तारीफ़ों की तलाश है
+मेरी महफ़िल तेरे जाने से वीरान है
+मैं बस शायर बना हूँ
+सिर्फ़ तू सुनने आए तो
+शायद शायर बना हूँ सिर्फ़ तू सुनने आए तो">
+                            <img src="images/song1.jpg" alt="Song">
+                            <h4>Arz Kiya Hai | Coke Studio Bharat</h4>
+                            <p>Anuv Jain</p>
+                            <button class="play-btn">▶</button>
+                        </div>
+
+                        <div class="music-card" data-song="music/song2.mp3" data-video="videos/video2.mp4" data-lyrics="कभी जो मैं इश्क़ लिखूँ
+तो तेरी तस्वीर बने
+हँस के मैं रांझा बनूँ
+जो तू मेरी हीर बने
+चाहूँ तेरे हाथों से
+मेरी तक़दीर बने
+हँस के मैं रांझा बनूँ
+जो तू मेरी हीर बने
+पहली सी बात नहीं
+क्या मैं तुझे याद नहीं
+क्योंकि तू रो लेती
+तेरी हर बात सही
+वो मंज़र अब भी आँखों से जाता नहीं
+तेरा कहना कि तू मुझको चाहता नहीं
+दिल भी मैं पेश करूँ
+तू अगर तीर बने
+हँस के मैं रांझा बनूँ
+जो तू मेरी हीर बने
+चाहूँ तेरे हाथों से
+मेरी तक़दीर बने
+हँस के मैं रांझा बनूँ
+जो तू मेरी हीर बने
+हो
+रब जाने या तू जाने
+हमरा दिल तुझको माने
+औरों की बातों में न आ हाय
+हमको न सुनता यहाँ पे
+दुनिया बस देती ताने
+ग़ैरों पे करना सफर ना
+या सच में बता दे
+तू चाहती है क्या
+होना जुदा
+क्या बाकी है तेरे जाने जा
+दिल में जगह
+ऐसी कोई बात नहीं
+जिसमें न याद तेरी
+कैसे न तू दिल में बसे
+रह जाए याद तेरी
+बिन तेरे जाने क्यों मुस्कुराता नहीं
+हँसना तो अब चाह कर भी आता नहीं
+खुद को मैं बाँध लूँ अगर
+जो तू ज़ंजीर बने
+हँस के मैं रांझा बनूँ
+जो तू मेरी हीर बने
+चाहूँ तेरे हाथों से
+मेरी तक़दीर बने
+हँस के मैं रांझा बनूँ,
+जो तू मेरी हीर बने हो हो
+हो हँस के मैं रांझा बनूँ
+जो तू मेरी हीर बने">
+                            <img src="images/song2.jpg" alt="Song">
+                            <h4>Heer</h4>
+                            <p>Ali & Shjr, Ali Raza, and Haider Ali ‧ 2025</p>
+                            <button class="play-btn">▶</button>
+                        </div>
+
+                        <div class="music-card" data-song="music/song3.mp3" data-video="videos/video3.mp4" data-lyrics="Kisi shaam ki tarah
+Tera rang hai khila
+Main raat ik tanha
+Tu chand sa mila
+
+Haan tujhe dekhta raha
+Kisi khaab ki tarah
+Jo ab saamne hai tu
+Ho kaise yaqeen bhala
+
+Toota jo kabhi taara, sajna ve!
+Tujhe Rabb se maanga
+Rabb se jo maanga mileya ve…
+Tu mileya to jaane na dunga main
+
+Haan maine suni hai
+Pariyon ki kahani
+Waisa hi noor tera
+Chehra hai tera ruhani
+
+Aa tujhko main apni
+(aaja meri) Baahon mein chupa loon
+Haan apni iss zameen ko
+Kar doon main aasmaan bhi…
+
+Zindagi rok doon main ab tere saamne
+Pal do pal jo ruke tu mere sath mein
+
+Toota jo kabhi tara sajna ve
+Tujhe Rabb se maanga
+Rabb se jo maanga mileya ve…
+Tu mileya to jaane na dunga main
+
+Itni bhi haseen main nahi, o yaara ve!
+Mujhse bhi haseen toh tera ye pyar hai
+Haan itni bhi haseen main nahi
+O yaara ve!
+Mujhse bhi haseen tera pyar…
+
+Ke tera mera pyar ye
+Jaise khwab aur duaa
+Haan sach kar raha inhe
+Dekho mera Khuda…
+
+Toota jo kabhi taara sajna ve
+Tujhe Rabb se maanga
+Rabb se jo maanga, mileya ve…
+Tu mileya to jaane na dungi main
+">
+                            <img src="images/song3.jpg" alt="Song">
+                            <h4>Toota Jo Kabhi Tara</h4>
+                            <p>Sumedha Karmahe, Atif Aslam</p>
+                            <button class="play-btn">▶</button>
+                        </div>
+                        <div class="music-card" data-song="music/song4.mp3" data-video="videos/video4.mp4" data-lyrics="
+Tara rum bam bam bam bam
+Tara rum bam bam bam bam
+Tara rum bam bam bam bam
+Imma shake yo world imma break it down
+Teekha eyeliner lemme fix that crown
+Juuls on my body gold and brown
+Now bow down
+
+Mera nasha chadhe sir pe hai zehreela
+Imma spin your head jaise tequila
+Vision so bright ye na dekh pa re
+Gold waist chain maare lashkaare
+
+Ain’t no gold digger chaubis carat soul meri
+Dil hue chori sab ke international robbery
+Duniya ramp walk slow motion confetti
+Sunu na kisi ki coz m not yo property
+
+Casa casa casa casa casa tupka tequila
+Casa casa casa casa casa tupka tequila
+Casa casa casa casa casa tupka tequila
+Casa casa casa casa casa tupka tequila
+Casa casa casa casa casa tupka tequila
+
+Party karni party pehle yo yo bulao
+Police toh agayi ab aunty bulao
+Party all nighter kambal uthao
+Mere hatero ko pehle thode chole khilao
+
+Mujhsa sexy kaun mujhsa sexy kaun
+Daadi salt and pepper rakhi mujhsa flexy laun
+Bada hot hai weather jab baje reggaeto
+Lemme take you baby girl chalo mexico
+
+Teri vodka kahan gayi kya hua biki ni
+Chal kaam band kar pehen aaja bikini
+Rakhlu kya kaam pe leliyo sallary
+Aya jo mai wapis inki shakle bhi dikhi nahi
+
+Baitha mai toh peak pe
+Ab tamasha dekhunga
+Mota paisa hai kamaya
+Mota paisa faekunga
+
+Bina piye udu mai
+Mujhe neeche khicho na
+Daaru peeni chori maine
+Ab bus baechunga
+
+Casa casa casa casa casa tupka tequila
+Casa casa casa casa casa tupka tequila
+Casa casa casa casa casa tupka tequila
+Casa casa casa casa casa tupka tequila
+Casa casa casa casa casa tupka tequila
+
+Tara rum bam bam bam bam
+Drink only tequila get drunk
+Tara rum bam bam bam bam
+Drink only tequila get drunk
+
+Tara rum bam bam bam bam
+Drink only tequila get drunk
+Tara rum bam bam bam bam
+Drink only tequila get drunk
+
+Tara rum bam bam bam bam
+Tara rum bam bam bam bam
+Tara rum bam bam bam bam
+Tara rum bam bam bam bam">
+                            <img src="images/song4.jpg" alt="Song">
+                            <h4>Casa Tupka Anthemo</h4>
+                            <p>Yo Yo Honey Singh, Priyanshi Srivastava</p>
+                            <button class="play-btn">▶</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="right-box">
+            <nav class="right-box-navbar" style="margin: 5%;">
+                <div id="rtbx-title" style="color: aliceblue; font-size: 25px;"></div>
+                <div id="rtbx-songby" style="color: white; font-size: 14px;"></div>
+            </nav>
+
+            <div class="right-box-content">
+                <!-- Video Player jo bina aawaz ke loop mein chalega -->
+                <video id="bg-video" loop muted autoplay playsinline
+                    style="margin-top: 5px; width: 100%; max-height: 250px; border-radius: 10px; object-fit: cover;"></video>
+
+                <!-- Lyrics Section -->
+                <div class="lyrics-container" style="margin-top: 20px; color: white;">
+                    <h3>Lyrics</h3>
+                    <p id="song-lyrics">Select a song to see lyrics...</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="music-player">
+
+        <div class="player-song">
+            <img id="player-image" src="" alt="Song">
+            <div>
+                <h4 id="player-title">Song Name</h4>
+                <p id="player-artist">Artist Name</p>
+            </div>
+        </div>
+
+        <div class="player-controls">
+            <button id="prev-btn">❮❮</button>
+            <button class="play-btn" id="play-btn">▶</button>
+            <button id="next-btn">❯❯</button>
+        </div>
+
+        <div class="player-progress">
+            <span id="current-time">0:00</span>
+            <input type="range" id="progress-bar" value="0" min="0">
+            <span id="duration">0:00</span>
+        </div>
+
+    </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
